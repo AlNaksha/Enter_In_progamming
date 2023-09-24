@@ -30,3 +30,8 @@
 .exe
 .out
 .app
+
+
+1w.csproj
+\bin
+\obj
