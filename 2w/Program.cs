@@ -19,6 +19,21 @@ void Task13(){
         }
 }
 
+void Task15(){
+    Console.Write("Введите номер дня: ");
+    int num = Convert.ToInt32(Console.ReadLine());
+    switch(num%7){
+        case 0:
+        case 6:{
+            Console.WriteLine("Выходной!");
+            break;
+        }
+        default:{
+            Console.Write("Будний");
+            break;
+        }
+    }
+}
 
 Console.Write(@"Доступные номера задач:
     10 Вывод 2-ой цифры 3-х значного числа.
@@ -36,8 +51,7 @@ switch(ntask){
         break;
     };
     case 15:{
-        // Task15();
-        Console.Write("15");
+        Task15();
         break;
     };
     default:{
