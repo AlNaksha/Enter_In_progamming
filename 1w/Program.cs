@@ -40,6 +40,21 @@ void Task6(){
     }
 }
 
+void Task8(){
+    Console.Write("Введите число( больше 1): ");
+    int num = Convert.ToInt32(Console.ReadLine());
+    if (num>=2){
+        int i = 2;
+        while(num >= i){
+            Console.Write("{0} ", i);
+            i+=2;
+        }
+    }
+    else{
+        Console.WriteLine("Четных нет");
+    }
+}
+
 Console.Write(@"Доступные номера задач:
     2 Максимальное из двух целых чисел.
     4 Максимальное из трех целых чисел.
@@ -61,7 +76,7 @@ switch(ntask){
         break;
     };
     case 8:{
-        Console.WriteLine("4");
+        Task8();
         break;
     };
     default:{
