@@ -30,6 +30,16 @@ void Task4(){
 
 }
 
+void Task6(){
+    Console.Write("Введите число: ");
+    if (Convert.ToInt32(Console.ReadLine())%2==0){
+        Console.WriteLine("Число четное!");
+    }
+    else{
+        Console.WriteLine("Число нечетное!");
+    }
+}
+
 Console.Write(@"Доступные номера задач:
     2 Максимальное из двух целых чисел.
     4 Максимальное из трех целых чисел.
@@ -47,7 +57,7 @@ switch(ntask){
         break;
     };
     case 6:{
-        Console.WriteLine("3");
+        Task6();
         break;
     };
     case 8:{
