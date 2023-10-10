@@ -135,25 +135,108 @@ Console.Write(string.Join(", ", arr)+" -> "+countPos(arr));
 
 //*/
 
-/*//Задача 43:
+/*// Задача 43:
 Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
 
 b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
-*///
-int getInt(string str){ // Получение целого числа с консоли с текстом запроса
 
+// Попытка решения через класс.
+// using System.Drawing;
+// using System.Runtime.InteropServices;
+
+// lineDB2d line1 = new lineDB2d();
+// line1.setLineConsole();
+// line1.PrintLine();
+
+// lineDB2d line2 = new lineDB2d();
+// line2.setLineConsole();
+// line2.PrintLine();
+// System.Console.WriteLine('[' + string.Join(", ", line1^line2) + ']');
+
+// class lineDB2d {
+    
+//     private double _k,_b;
+//     static int count;
+
+//     public lineDB2d(double gK=0, double gB=0)
+//     {
+//         _k= gK;
+//         _b= gB;
+//         count++;
+//     }
+//     ~lineDB2d(){
+//         // System.Console.Write($"{count}");
+//         count--;
+//     }
+//     public void PrintLine(){
+//         switch (( Math.Abs(_k), Math.Abs(_b))){
+//             case (>0, >0):
+//                 System.Console.WriteLine($"y = {_k}x {(_b>0?"+":"-")} {Math.Abs(_b)}");
+//                 break;
+//             case (0, >0 ):
+//                 System.Console.WriteLine($"y = {_b}");
+//                 break;
+//             case (>0 , 0 ):
+//                 System.Console.WriteLine($"y = {_k}x");
+//                 break;
+//             default:
+//                 System.Console.WriteLine($"y = 0");
+//                 break;
+
+//         }
+//     }
+//     public double getK() => _k;
+
+//     public static double[] operator ^(lineDB2d l1, lineDB2d l2){
+//         if (l1._k==l2._k)
+//         {
+//             System.Console.WriteLine("Прямые параллельны");
+//             return [null,null];
+//         } 
+//         else {
+//             double x = (l2._b - l1._b) / (l1._k - l2._k);
+//             double y = l1._k * x + l1._b;
+//             System.Console.WriteLine($"Точка пересечения - [{x},{y}]");     
+//             return [x, y];       
+//         }
+//     }
+//     public double getB() => _b;
+    
+//     private double getConsole(string str){
+//         System.Console.Write(str);
+//         return Convert.ToDouble(Console.ReadLine());
+//     }
+//     public void setLineConsole(){ // Получение целого числа с консоли с текстом запроса
+//         Console.WriteLine($"(определение прямой №{count}) Линии на плоскости имеют формат y = k{count}*x + b{count} ");
+//         _k = getConsole($"Введите коэффециент k{count}: ");
+//         _b = getConsole($"Введите смещение b{count}: ");
+//     }
+// }
+//*/
+
+double getDB(string str = "\n"){ // Получение целого числа с консоли с текстом запроса
     Console.Write(str);
-    return Convert.ToInt32(Console.ReadLine());
+    return Convert.ToDouble(Console.ReadLine());
 }
 
-int[] intrsec(int[] line2d1, int[] line2d2){
-    int x = (line2d1[2]-line2d2[2])/(line2d2[1]-line2d1[1]);
-    int y = line2d1[1]*x+line2d1[2];
-    return {x, y};
+double[] intrseclines(double[] line2d1, double[] line2d2){
+    double[] pointInrsec = new double[2];
+    pointInrsec[0] = (line2d2[1]-line2d1[1])/(line2d1[0]-line2d2[0]);
+    pointInrsec[1] = line2d1[0]*pointInrsec[0]+line2d1[1];
+    return pointInrsec;
 }
 
-Console.WriteLine(string.Join(", ", intrsec({getInt("k1 = "),getInt("b1 = ")}, {getInt("k2 = "),getInt("b2 = ")})));
+double[] line1 = new double[2];
+line1[0] = getDB("k1 = ");
+line1[1] = getDB("b1 = ");
+double[] line2 = new double[2];
+line2[0] = getDB("k2 = ");
+line2[1] = getDB("b2 = ");
+
+// Console.WriteLine('[' + string.Join(", ", line1 ) + ']');
+// Console.WriteLine('[' + string.Join(", ", line2 ) + ']');
+Console.WriteLine(" -> "+'(' + string.Join(", ", intrseclines( line1, line2 ) ) + ')');
 
 
 //*/
