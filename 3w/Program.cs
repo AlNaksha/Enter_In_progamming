@@ -102,3 +102,26 @@
 // }
 
 // System.Console.WriteLine('[' + string.Join(", ", FillArray(mass, rnd)) + ']');
+
+///
+
+double[] FillArray(double[] arr, double s=0, double e=10)
+{
+    Random rnd = new Random();
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr[i] = rnd.NextDouble()*(e-s)+s;
+    }
+    return arr;
+}
+
+double[] mass = new double[4];
+FillArray(mass);
+//System.Console.WriteLine('[' + string.Join(", ", mass) + ']');
+string str = "The averages in columns are:\n";
+for (int i=0; i<mass.Length;i++)
+{
+    str += string.Format("{0:f2}\t", Math.Round(mass[i],2));
+}
+Console.Write(str.Replace(',','.'));
+// System.Console.WriteLine("The averages in columns are:\n"+ string.Join("\t", FillArray(mass)).Replace(',','.'));

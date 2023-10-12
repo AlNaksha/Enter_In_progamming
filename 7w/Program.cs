@@ -235,9 +235,38 @@ PrintMatrix(matrix);
 
 //*/ 
 
-/*// 
+//*/ Методы
 
-*/// 
+double[,] FillMatrix(int m, double s=0, double e=10){
+    double[,] matrix = new double[m, m];
+    Random rnd = new Random();
+    for (int i = 0; i < matrix.GetLength(0); i++){
+        for (int j = 0; j < matrix.GetLength(1); j++){
+            matrix[i, j] = rnd.NextDouble()*(e-s)+s;
+        }
+    }
+    return matrix;
+}
+
+void PrintMatrix(double[,] matrix, string str="\n"){
+    System.Console.WriteLine(str);
+    for (int i = 0; i < matrix.GetLength(0); i++){
+        for (int j = 0; j < matrix.GetLength(1); j++){
+            System.Console.Write($"{matrix[i, j]:f2}\t");
+        }
+        System.Console.WriteLine();
+    }
+}
+
+System.Console.Write("Введите число строк и столбцов = ");
+int row = Convert.ToInt32(Console.ReadLine());
+double[,] matrix = FillMatrix(row, -10, 10);
+PrintMatrix(matrix,"Исходная матрица");
+double b = (double)row;
+System.Console.WriteLine($"{b:f2}");
+
+
+//*/ 
 
 /// 
 

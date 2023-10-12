@@ -215,6 +215,8 @@ b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 // }
 //*/
 
+using System.Text;
+
 double getDB(string str = "\n"){ // Получение целого числа с консоли с текстом запроса
     Console.Write(str);
     return Convert.ToDouble(Console.ReadLine());
@@ -236,7 +238,7 @@ line2[1] = getDB("b2 = ");
 
 // Console.WriteLine('[' + string.Join(", ", line1 ) + ']');
 // Console.WriteLine('[' + string.Join(", ", line2 ) + ']');
-Console.WriteLine(" -> "+'(' + string.Join(", ", intrseclines( line1, line2 ) ) + ')');
+Console.WriteLine(" -> "+'(' + string.Format("{f4}")Join("\t", intrseclines( line1, line2 ) ).Replace(',','.') + ')');
 
 
 //*/
