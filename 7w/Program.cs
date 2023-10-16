@@ -45,6 +45,7 @@ PrintMatrix(matrix);
     1 2 3 4
     2 3 4 5
 ///
+
 int[,] FillMatrixNew(int n, int m)
 {
     int[,] a = new int[n, m];
@@ -97,6 +98,7 @@ PrintMatrix(a);
     5    9   2   3
     64   4   4   4
 ///
+
 int[,] FillMatrix(int n, int m)
 {
     int[,] a = new int[n, m];
